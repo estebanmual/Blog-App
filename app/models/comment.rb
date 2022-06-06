@@ -3,4 +3,8 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :post
+
+  def update_comment_count
+    post.increment!(:CommentsCounter)
+  end
 end
