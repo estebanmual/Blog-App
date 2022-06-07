@@ -16,16 +16,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-        redirect_to root
+      redirect_to root
     else
-        render :new
+      render :new
     end
   end
 
   private
 
   def post_params
-    defaults = {user_id: current_user.id}
+    defaults = { user_id: current_user.id }
     params.require(:post).permit(:Title, :Text, :user_id).reverse_merge(defaults)
   end
 end
