@@ -1,1 +1,13 @@
-<h1>This is the page of the post with id: <%= @post_id %> of the user with id <%= @user_id %></h1>
+<section>
+    <h3>Post #<%= @post.id %> by <%= @user.Name %></h3>
+    <div>
+        <p>Comments: <%=@post.CommentsCounter %></p>
+        <p>Likes: <%=@post.LikesCounter %></p>
+    </div>
+    <p><%= @post.Text %></p>
+</section>
+<section>    
+    <% @post.recent_comment.each do |comment|%>
+       <p><%= comment.user.Name %>: <%= comment.Text %> </p>
+    <% end %>
+</section>
