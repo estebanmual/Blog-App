@@ -1,13 +1,13 @@
 <section>
     <h3>Post #<%= @post.id %> by <%= @user.Name %></h3>
     <div>
-        <p>Comments: <%=@post.CommentsCounter %></p>
-        <p>Likes: <%=@post.LikesCounter %></p>
+        <p>Comments: <%=@post.comments.count %></p>
+        <p>Likes: <%=@post.likes.count %></p>
     </div>
     <p><%= @post.Text %></p>
 </section>
 <section>    
-    <% @post.recent_comment.each do |comment|%>
-       <p><%= comment.user.Name %>: <%= comment.Text %> </p>
+    <% @post.comments.order(created_at: :desc).each do |comment| %>
+        <p> <%= comment.user.Name %>: <%= comment.Text %></p>
     <% end %>
 </section>

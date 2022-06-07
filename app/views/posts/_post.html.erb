@@ -1,10 +1,10 @@
 <section>
     <div>
-        <h3>Post #<%=post.id %> </h3>
+        <a href=<%=user_post_path(@user.id, post.id) %>><h3>Post #<%=post.id %> </h3></a>
         <p><%=post.Text%></p>
         <div>
-            <p>Comments: <%=post.CommentsCounter %></p>
-            <p>Likes: <%=post.LikesCounter %></p>
+            <p>Comments: <%=post.comments.count %></p>
+            <p>Likes: <%=post.likes.count %></p>
         </div>
     </div>
     <div>
