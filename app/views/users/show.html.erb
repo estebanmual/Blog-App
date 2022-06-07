@@ -1,1 +1,10 @@
-<h1>This is the page for the user with the id <%= @user %></h1>
+<%= render 'user', user: @user %>
+
+<section>
+    <h2>Bio</h2>
+    <p><%=@user.Bio%></p>
+</section>
+
+<%= render partial: 'post', collection: @posts %>
+
+<button> <%= link_to ("See all posts"), user_posts_path(@user.id) %>

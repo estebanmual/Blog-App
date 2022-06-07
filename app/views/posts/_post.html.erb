@@ -1,0 +1,15 @@
+<section>
+    <div>
+        <a href=<%=user_post_path(@user.id, post.id) %>><h3>Post #<%=post.id %> </h3></a>
+        <p><%=post.Text%></p>
+        <div>
+            <p>Comments: <%=post.comments.count %></p>
+            <p>Likes: <%=post.likes.count %></p>
+        </div>
+    </div>
+    <div>
+        <% post.recent_comment.each do |comment|%>
+            <p><%= comment.user.Name %>: <%= comment.Text %> </p>
+        <% end %>
+    </div>
+</section>

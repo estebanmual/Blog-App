@@ -1,0 +1,9 @@
+<section>
+    <% unless user.Photo.nil? %>
+       <%= image_tag (user.Photo), height: '115', width: '115' %>
+    <% end %>
+    <div>
+      <h2> <%= user.Name %></h2>
+      <span>Number of posts: <%=user.posts.count %> </span>
+    </div>
+</section>
