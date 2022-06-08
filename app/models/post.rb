@@ -2,12 +2,12 @@ class Post < ApplicationRecord
   validates :Title, presence: true
   validates :Text, presence: true
 
-  belongs_to :user, counter_cache: true
+  belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   def update_post_counter
-    user.posts_count
+    user.increment!(:PostsCounter)
   end
 
   def recent_comment

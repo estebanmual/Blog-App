@@ -1,0 +1,15 @@
+<%= form_with model: @post, url: user_posts_path do |form|%>
+    <% @post.errors.full_messages.each do |error|%>
+        <%= error %> <br>
+    <%end%>
+    <%= form.label :Title%>
+    <%= form.text_field :Title%>
+
+    <br>
+
+    <%= form.label :Text%>
+    <%= form.text_area :Text%>
+    
+    <br>
+    <%= form.submit%>
+<% end %>
