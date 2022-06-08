@@ -10,4 +10,17 @@
     <% @post.comments.order(created_at: :desc).each do |comment| %>
         <p> <%= comment.user.Name %>: <%= comment.Text %></p>
     <% end %>
+
+    <%= form_with model: Comment.new, url: user_post_comments_path(@user.id, @post.id) do |form| %>
+        <% Comment.new.errors.full_messages.each do |error|%>
+            <%= error %> <br>
+        <%end%>
+        <p>Add a new comment</p>
+        <%= form.text_field :Text %>
+        <%= form.submit %>
+    <% end %>
+
+    <%= form_with model: Like.new, url: user_post_likes_path(user_id: @user.id, post_id: @post.id) do |form| %>
+        <%= form.submit "<3" %>
+    <% end %>
 </section>

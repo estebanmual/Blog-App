@@ -2,9 +2,8 @@ class Comment < ApplicationRecord
   validates :Text, presence: true
 
   belongs_to :user
-  belongs_to :post, counter_cache: true
-
+  belongs_to :post
   def update_comment_count
-    post.comments_count
+    post.increment!(:CommentsCounter)
   end
 end
