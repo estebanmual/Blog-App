@@ -9,7 +9,7 @@
       </div>
     </section>
 <%else%>
-   <a href=<%= user_path(user.id) %>>
+  <a href=<%= user_path(user.id) %>>
     <section>
       <% unless user.Photo.nil? %>
         <%= image_tag (user.Photo), height: '115', width: '115' %>
