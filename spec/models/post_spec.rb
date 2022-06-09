@@ -26,7 +26,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'length validation' do
-    title = "E" * 251
+    title = 'E' * 251
     post = Post.new(Title: title, Text: 'testing post', user_id: 12)
     post.save
     expect(post).to_not be_valid
@@ -59,5 +59,4 @@ RSpec.describe Post, type: :model do
     post.save
     expect(post).to_not be_valid
   end
-  
 end
