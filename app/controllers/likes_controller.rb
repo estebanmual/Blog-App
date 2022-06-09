@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(likes_params)
     @like.save
-    redirect_to user_post_path(@like.user_id, @like.post_id)
+    redirect_to user_post_path(@like.user_id, @like.post_id), notice:'Your like has been created successfully'
   end
 
   private
