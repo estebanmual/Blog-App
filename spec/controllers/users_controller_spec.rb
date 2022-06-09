@@ -12,7 +12,7 @@ RSpec.describe 'Users requests tests', type: :request do
   end
 
   describe 'Get #show' do
-    before(:example) { get user_path(id: 5) }
+    before(:example) { get user_path(id: 12) }
     it 'render user profile' do
       expect(response).to have_http_status(:ok)
     end
@@ -32,7 +32,7 @@ RSpec.describe 'Users views tests', type: :system do
 
   describe 'Show view' do
     it 'shows the correct content' do
-      visit user_path(id: 5)
+      visit user_path(id: 12)
       expect(page).to have_content('Bio')
     end
   end
