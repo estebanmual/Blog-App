@@ -64,7 +64,7 @@ group :development do
   gem 'web-console'
 
   # letter opener gem, for letter opening
-  gem "letter_opener", group: :development
+  gem 'letter_opener', group: :development
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
