@@ -1,3 +1,5 @@
+<p> You are a [<%= user.role %>]</p>
+
 <%if current_page?(user_path(user.id))%>
   <section>
       <% unless user.Photo.nil? %>
