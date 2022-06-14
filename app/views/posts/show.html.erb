@@ -9,6 +9,7 @@
 <section>    
     <% @post.comments.order(created_at: :desc).each do |comment| %>
         <p> <%= comment.user.Name %>: <%= comment.Text %></p>
+        <% if can? :destroy, comment %><%= button_to "DELETE COMMENT", user_post_comment_path(user_id:@user.id, post_id:@post.id, id: comment.id), :method=>:delete %><%end%>
     <% end %>
 
     <%= form_with model: Comment.new, url: user_post_comments_path(@user.id, @post.id) do |form| %>
@@ -23,4 +24,7 @@
     <%= form_with model: Like.new, url: user_post_likes_path(user_id: @user.id, post_id: @post.id) do |form| %>
         <%= form.submit "<3" %>
     <% end %>
+</section>
+<section>
+  <% if can? :destroy, @post %><%= button_to "DELETE POST", user_post_path(user_id:@user.id, post_id:@post.id), :method=>:delete %><%end%>
 </section>
