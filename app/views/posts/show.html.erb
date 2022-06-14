@@ -24,3 +24,6 @@
         <%= form.submit "<3" %>
     <% end %>
 </section>
+<section>
+  <% if can? :destroy, @post %><%= button_to "DELETE POST", user_post_path(user_id:@user.id, post_id:@post.id), :method=>:delete %><%end%>
+</section>
