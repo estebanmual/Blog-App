@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it 'is valid' do
-    user = User.new(Name: 'Esteban', Bio: 'testing user')
-    user.save
+    user = User.new(Name: 'Esteban', email: 'test2@test2.com', password: 'password')
     expect(user).to be_valid
   end
 
@@ -14,7 +13,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'recent posts' do
-    user = User.find(12).recent_posts
-    expect(user.first.id).to eql(8)
+    user = User.find(1).recent_posts
+    expect(user.last.id).to eql(1)
   end
 end
