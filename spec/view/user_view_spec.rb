@@ -9,7 +9,7 @@ RSpec.describe 'Users views tests', type: :system do
 
       it 'shows the image of all users' do
         visit users_path
-        expect(page).to have_selector('img')
+        expect(page.has_xpath?("//img[@src = '#{User.first.photo}']"))
       end
 
       it 'shows the right content' do
