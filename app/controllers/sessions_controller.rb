@@ -2,12 +2,8 @@ class SessionsController < Devise::SessionsController
   def create
     email = params[:user][:email]
     password = params[:user][:password]
-    if email == ''
-      redirect_to new_user_session_path, alert: 'Please enter an email'
-    elsif password == ''
-      redirect_to new_user_session_path, alert: 'Please enter a password'
-    elsif User.find_by_email(email).nil?
-      redirect_to new_user_session_path, alert: 'Incorrect email'
+    if email == '' || password == '' || User.find_by_email(email).nil?
+      redirect_to new_user_session_path, alert: 'Invalid email or password'
     else
       self.resource = warden.authenticate!(auth_options)
       set_flash_message(:notice, :signed_in) if is_navigational_format?
