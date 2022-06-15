@@ -32,3 +32,6 @@
 
 #Ignore nodemodules
 node_modules/
+
+#Ignore rspec report
+rspec_results.html

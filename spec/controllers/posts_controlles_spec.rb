@@ -23,13 +23,6 @@ RSpec.describe 'Posts requests tests', type: :request do
 end
 
 RSpec.describe 'Posts views tests', type: :system do
-  describe 'Index view' do
-    it 'shows the right content' do
-      visit user_posts_path(user_id: 1)
-      expect(page).to have_content('Add new post')
-    end
-  end
-
   describe 'Show view' do
     it 'shows the right content' do
       visit user_post_path(id: 1, user_id: 1)
