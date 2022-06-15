@@ -9,17 +9,19 @@ RSpec.describe 'Users views tests', type: :system do
 
       it 'shows the image of all users' do
         visit users_path
-        expect(page.has_xpath?("//img[@src = '#{User.first.photo}']"))
+        expect(page).to have_selector('img')
       end
 
-      it 'shows the right content' do
+      it 'shows the number of posts' do
         visit users_path
         expect(page).to have_content('Number of posts:')
       end
 
       it 'redirects to the users show page on click' do
-        find_link(User.first.name).click
-        expect(page).to have_current_path("/users/#{User.first.id}")
+        visit users_path
+        link = page.find(:css, 'a[href="/users/1"]')
+        link.click
+        expect(page).to have_current_path('/users/1')
       end
     end
 
