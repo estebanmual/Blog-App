@@ -22,6 +22,7 @@ This is the skeleton for a blog app
 
 To run the project,
 - Navigate to the root directory of the project `cd Blog-app`
+- run `bundle install`
 - run `rails db:create`
 - run `rails s`
 
