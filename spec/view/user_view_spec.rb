@@ -9,7 +9,7 @@ RSpec.describe 'Users views tests', type: :system do
 
       it 'shows the image of all users' do
         visit users_path
-        expect(page).to have_selector('img')
+        page.should have_selector(:img, 'https://www.modaes.es/files/2020/11_revista/r40/728x350_4.png')
       end
 
       it 'shows the right content' do
