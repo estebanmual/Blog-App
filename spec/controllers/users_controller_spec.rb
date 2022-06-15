@@ -21,19 +21,3 @@ RSpec.describe 'Users requests tests', type: :request do
     end
   end
 end
-
-RSpec.describe 'Users views tests', type: :system do
-  describe 'Index view' do
-    it 'shows the right content' do
-      visit users_path
-      expect(page).to have_content('Number of posts:')
-    end
-  end
-
-  describe 'Show view' do
-    it 'shows the correct content' do
-      visit user_path(id: 1)
-      expect(page).to have_content('Bio')
-    end
-  end
-end
