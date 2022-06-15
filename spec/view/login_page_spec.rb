@@ -16,5 +16,8 @@ RSpec.describe 'login page', type: :feature do
       click_button 'Log in'
       expect(page).to have_content('Please enter a valid email')
     end
+
+    it ''
+
     
 end
