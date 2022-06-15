@@ -22,7 +22,7 @@ RSpec.describe Post, type: :model do
 
   it 'recent comment' do
     post = Post.find(1).recent_comment
-    expect(post.count).to eq(0)
+    expect(post.count).to eq(1)
   end
 
   it 'length validation' do
