@@ -52,7 +52,7 @@ gem 'bootsnap', require: false
 gem 'jwt', '~> 2.4', '>= 2.4.1'
 
 # gem bcrypt
-gem 'bcrypt', '~> 3.1', '>= 3.1.11' 
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
