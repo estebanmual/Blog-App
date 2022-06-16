@@ -1,4 +1,4 @@
-require 'JWT'
+require 'jwt'
 
 module JsonWebToken
   extend ActiveSupport::Concern
