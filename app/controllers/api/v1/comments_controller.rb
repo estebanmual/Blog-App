@@ -9,7 +9,11 @@ class Api::V1::CommentsController < ApplicationController
   def create
     comment = current_user.comments.new(comment_params)
 
-    render json: comment if comment.save
+    if comment.save
+      render json: comment, status: :created
+    else
+      render json: comment.errors, status: :unprocessable_entity
+    end
   end
 
   private
