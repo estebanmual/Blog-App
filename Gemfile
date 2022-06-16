@@ -49,7 +49,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # gem JSON web token
-gem 'jwt', '~> 2.4', '>= 2.4.1' 
+gem 'jwt', '~> 2.4', '>= 2.4.1'
+
+# gem bcrypt
+gem 'bcrypt', '~> 3.1', '>= 3.1.11' 
 
 # Use Sass to process CSS
 # gem "sassc-rails"

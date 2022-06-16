@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  require 'securerandom'
+  has_secure_password
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,6 +12,7 @@ class User < ApplicationRecord
     self.role ||= :user
   end
   validates :Name, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :PostsCounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   has_many :posts, dependent: :destroy
