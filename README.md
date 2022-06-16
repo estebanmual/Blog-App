@@ -22,8 +22,12 @@ This is the skeleton for a blog app
 
 To run the project,
 - Navigate to the root directory of the project `cd Blog-app`
+- run `bundle install`
 - run `rails db:create`
 - run `rails s`
+
+## Runnig tests
+- run `rspec`
 
  ## Authors:
 
@@ -33,6 +37,11 @@ To run the project,
 - Twitter: [@estebanmual](https://twitter.com/estebanmual)
 - Instagram: [@estebanmual](https://instagram.com/estebanmual)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/estebanmual)
+
+### 👤 Joaquin G.L. Zanetti
+- GitHub: [@Kakalanp](https://github.com/Kakalanp)
+- Twitter: [@LeccaJoaquin](https://twitter.com/LeccaJoaquin)
+- LinkedIn: [Joaquín Garrido Lecca Zanetti](https://www.linkedin.com/in/joaquin-garrido-lecca-zanetti/)
 
  ## 🤝 Contributing
 
