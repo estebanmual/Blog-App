@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def authenticate_request(credential)
     user = User.where(email: credential[0]).take
     return false unless user || user.confirmed?
+
     @current_user = user
   end
 end

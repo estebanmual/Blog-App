@@ -14,7 +14,7 @@ class Api::V1::CommentsController < ApplicationController
     token = User.find(user_id).token
     credential = JsonWebToken::EncoderJWT.jwt_decode(token)
     if authenticate_request(credential)
-      comments = Comment.where(post_id: post_id)
+      comments = Comment.where(post_id:)
       render json: comments, status: :ok
     else
       render json: { error: 'unauthorized' }, status: 401
@@ -26,8 +26,9 @@ class Api::V1::CommentsController < ApplicationController
     token = User.find(user_id).token
     credential = JsonWebToken::EncoderJWT.jwt_decode(token)
     if authenticate_request(credential)
-      comment = Comment.new(comment_params)
-      render json: { message: 'your comment was created succesfully'}, status: :ok
+      comment = Comment.create(comment_params)
+      comment.save
+      render json: { message: 'your comment was created succesfully' }, status: :ok
     else
       render json: { error: 'unauthorized' }, status: 401
     end
@@ -36,7 +37,7 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comments_params
-    defaults = { post_id: params[:post_id], user_id: params[:user_id]}
+    defaults = { post_id: params[:post_id], user_id: params[:user_id] }
     params.require(:comment).permit(:Text, :post_id, :user_id).reverse_merge(defaults)
   end
 end
