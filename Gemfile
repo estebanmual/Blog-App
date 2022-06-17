@@ -33,6 +33,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # cancancan gem
 gem 'cancancan', '~> 3.3'
 
+# rswag gem for api documentation
+gem 'rswag'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -48,6 +51,12 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# gem JSON web token
+gem 'jwt', '~> 2.4', '>= 2.4.1'
+
+# gem bcrypt
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -60,6 +69,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
