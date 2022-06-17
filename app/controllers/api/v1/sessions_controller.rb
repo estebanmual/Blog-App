@@ -1,5 +1,5 @@
 class Api::V1::SessionsController < Devise::SessionsController
-  skip_before_action :authenticate_request, only: [:login]
+  skip_before_action :authenticate_request, only: [:create]
 
   def create
     email = params[:user][:email]
