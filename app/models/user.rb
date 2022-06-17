@@ -1,13 +1,12 @@
 class User < ApplicationRecord
   require 'securerandom'
-  has_secure_password
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :trackable
   enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
+
   def set_default_role
     self.role ||= :user
   end
@@ -19,7 +18,13 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  after_save :add_token
+
   def recent_posts
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def add_token
+    update_column(:token, JsonWebToken::EncoderJWT.jwt_encode(email))
   end
 end
